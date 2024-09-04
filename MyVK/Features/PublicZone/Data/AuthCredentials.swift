@@ -6,8 +6,3 @@
 //
 
 import Foundation
-
-final class AuthCredentials {
-    var token: String?
-    var userID: String?
-}

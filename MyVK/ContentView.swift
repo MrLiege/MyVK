@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        if UserStorage.shared.token == nil, let url = AuthURLBuilder.current.url {
-            AuthWebView(authURL: url)
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .foregroundStyle(.tint)
+            Text("Hello, world!")
         }
+        .padding()
     }
 }
 
