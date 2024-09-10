@@ -15,7 +15,6 @@ struct TabBarFeature {
     @ObservableState
     struct State {
         var currentTab: Tab = .friends
-        var isAnimating: Bool = false
     }
     
     enum Action: BindableAction {
