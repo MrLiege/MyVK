@@ -16,6 +16,11 @@
 		0CD87CAC2C87977000AD76AC /* AuthURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CAB2C87977000AD76AC /* AuthURLBuilder.swift */; };
 		0CD87CAE2C88B86000AD76AC /* AuthCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CAD2C88B86000AD76AC /* AuthCredentials.swift */; };
 		0CD87CB02C88B8E500AD76AC /* AuthWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CAF2C88B8E500AD76AC /* AuthWebView.swift */; };
+		0CD87CD42C8F285D00AD76AC /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 0CD87CD32C8F285D00AD76AC /* ComposableArchitecture */; };
+		0CD87CD82C8F35CD00AD76AC /* TabBarFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CD72C8F35CD00AD76AC /* TabBarFeature.swift */; };
+		0CD87CDC2C8F46CC00AD76AC /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CDB2C8F46CC00AD76AC /* TabBarView.swift */; };
+		0CD87CDF2C8F7ADB00AD76AC /* FirstAppearModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CDE2C8F7ADB00AD76AC /* FirstAppearModifier.swift */; };
+		0CD87CE12C8F7BD500AD76AC /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87CE02C8F7BD500AD76AC /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,10 @@
 		0CD87CAB2C87977000AD76AC /* AuthURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthURLBuilder.swift; sourceTree = "<group>"; };
 		0CD87CAD2C88B86000AD76AC /* AuthCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCredentials.swift; sourceTree = "<group>"; };
 		0CD87CAF2C88B8E500AD76AC /* AuthWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebView.swift; sourceTree = "<group>"; };
+		0CD87CD72C8F35CD00AD76AC /* TabBarFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarFeature.swift; sourceTree = "<group>"; };
+		0CD87CDB2C8F46CC00AD76AC /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		0CD87CDE2C8F7ADB00AD76AC /* FirstAppearModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstAppearModifier.swift; sourceTree = "<group>"; };
+		0CD87CE02C8F7BD500AD76AC /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD87CD42C8F285D00AD76AC /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +109,7 @@
 		0CD87CA02C8786FD00AD76AC /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				0CD87CD52C8F359800AD76AC /* PrivateZone */,
 				0CD87CA12C87871300AD76AC /* PublicZone */,
 			);
 			path = Features;
@@ -149,9 +160,36 @@
 		0CD87CA62C87879000AD76AC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0CD87CDD2C8F7ACC00AD76AC /* ViewModifiers */,
 				0CD87CA72C878DCF00AD76AC /* Consts.swift */,
+				0CD87CE02C8F7BD500AD76AC /* View+Extension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		0CD87CD52C8F359800AD76AC /* PrivateZone */ = {
+			isa = PBXGroup;
+			children = (
+				0CD87CD62C8F35A700AD76AC /* TabBar */,
+			);
+			path = PrivateZone;
+			sourceTree = "<group>";
+		};
+		0CD87CD62C8F35A700AD76AC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				0CD87CD72C8F35CD00AD76AC /* TabBarFeature.swift */,
+				0CD87CDB2C8F46CC00AD76AC /* TabBarView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		0CD87CDD2C8F7ACC00AD76AC /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				0CD87CDE2C8F7ADB00AD76AC /* FirstAppearModifier.swift */,
+			);
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +208,9 @@
 			dependencies = (
 			);
 			name = MyVK;
+			packageProductDependencies = (
+				0CD87CD32C8F285D00AD76AC /* ComposableArchitecture */,
+			);
 			productName = MyVK;
 			productReference = 0CD87C8D2C8784DF00AD76AC /* MyVK.app */;
 			productType = "com.apple.product-type.application";
@@ -198,6 +239,9 @@
 				Base,
 			);
 			mainGroup = 0CD87C842C8784DF00AD76AC;
+			packageReferences = (
+				0CD87CD22C8F285D00AD76AC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			productRefGroup = 0CD87C8E2C8784DF00AD76AC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -224,12 +268,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD87CDF2C8F7ADB00AD76AC /* FirstAppearModifier.swift in Sources */,
 				0CD87CAC2C87977000AD76AC /* AuthURLBuilder.swift in Sources */,
+				0CD87CDC2C8F46CC00AD76AC /* TabBarView.swift in Sources */,
 				0CD87CAA2C878E9D00AD76AC /* UserStorage.swift in Sources */,
 				0CD87C932C8784DF00AD76AC /* ContentView.swift in Sources */,
 				0CD87CB02C88B8E500AD76AC /* AuthWebView.swift in Sources */,
 				0CD87CA82C878DCF00AD76AC /* Consts.swift in Sources */,
+				0CD87CE12C8F7BD500AD76AC /* View+Extension.swift in Sources */,
 				0CD87CAE2C88B86000AD76AC /* AuthCredentials.swift in Sources */,
+				0CD87CD82C8F35CD00AD76AC /* TabBarFeature.swift in Sources */,
 				0CD87C912C8784DF00AD76AC /* MyVKApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,8 +418,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -399,8 +447,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -436,6 +484,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0CD87CD22C8F285D00AD76AC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.14.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0CD87CD32C8F285D00AD76AC /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CD87CD22C8F285D00AD76AC /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0CD87C852C8784DF00AD76AC /* Project object */;
 }
