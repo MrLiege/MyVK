@@ -18,9 +18,6 @@ struct TabBarView: View {
             profileTabView
         }
         .tint(Color.mint)
-        .safeAreaInset(edge: .top) {
-            switchTabButton(tab: store.currentTab == .friends ? .profile : .friends)
-        }
     }
 }
 
@@ -30,12 +27,17 @@ private extension TabBarView {
     @ViewBuilder
     var friendTabView: some View {
         let tab = TabBarFeature.Tab.friends
-        Color.brown.ignoresSafeArea()
-            .tabItem {
-                Image(systemName: tab.iconName)
-                Text(tab.titleName)
-            }
-            .tag(tab)
+        FriendsListView(store: Store(
+            initialState: FriendsListFeature.State(),
+            reducer: {
+                FriendsListFeature()
+            })
+        )
+        .tabItem {
+            Image(systemName: tab.iconName)
+            Text(tab.titleName)
+        }
+        .tag(tab)
     }
     
     @ViewBuilder
@@ -50,17 +52,6 @@ private extension TabBarView {
     }
 }
 
-
-// MARK: - Buttons for switching tab
-private extension TabBarView {
-    @ViewBuilder
-    func switchTabButton(tab: TabBarFeature.Tab) -> some View {
-        Button(action: { store.send(.change(tab: tab))}) {
-            Text("\(tab.titleName)")
-        }
-        .padding()
-    }
-}
 
 #Preview {
     TabBarView(
