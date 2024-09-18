@@ -15,25 +15,36 @@ struct TabBarFeature {
     @ObservableState
     struct State {
         var currentTab: Tab = .friends
+        
+        var profile = ProfileFeature.State()
+        var friends = FriendsListFeature.State()
     }
     
     enum Action: BindableAction {
-        case change(tab: Tab)
+        case profile(ProfileFeature.Action)
+        case friends(FriendsListFeature.Action)
         case binding(BindingAction<State>)
     }
     
     var body: some ReducerOf<Self> {
         BindingReducer()
         
-        Reduce { state, action in
-            switch action {
-            case .change(let tab):
-                    state.currentTab = tab
-                return .none
-            case .binding:
-                return .none
-            }
+        Scope(state: \.profile, action: \.profile) {
+            ProfileFeature()
         }
+        
+        Scope(state: \.friends, action: \.friends) {
+            FriendsListFeature()
+        }
+        
+//        Reduce { state, action in
+//            switch action {
+//            case .change(let tab):
+//                    state.currentTab = tab
+//                return .none
+//            case .binding:
+//                return .none
+//            }
     }
 }
 

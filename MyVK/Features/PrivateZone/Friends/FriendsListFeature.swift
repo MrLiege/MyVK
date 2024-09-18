@@ -11,7 +11,7 @@ import ComposableArchitecture
 struct FriendsListFeature {
     @ObservableState
     struct State {
-        var friends: [Friend] = []
+        var friends: [User] = []
         var loadableView = LoadableViewFeature.State(screenState: .loaded)
         var errorMessage: String? = nil
         
@@ -30,7 +30,7 @@ struct FriendsListFeature {
         
         // MARK: - Requests
         case getFriends
-        case getFriendsResponse(Result<[Friend], Error>)
+        case getFriendsResponse(Result<[User], Error>)
     }
     
     @Dependency(\.friendsClient) private var friendsClient
@@ -64,6 +64,7 @@ struct FriendsListFeature {
                                 state.paginationOffset,
                                 Constants.paginationCount
                             )
+                            .users
                         }
                     ))
                 }

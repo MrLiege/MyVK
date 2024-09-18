@@ -16,7 +16,7 @@ enum LoadableScreenState {
 struct LoadableViewFeature {
     @ObservableState
     struct State: Equatable {
-        var screenState: LoadableScreenState = .loading
+        var screenState: LoadableScreenState = .loaded
         var isErrorShowing = false
         var errorMessage: String? = nil
     }
