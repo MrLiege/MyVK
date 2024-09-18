@@ -10,7 +10,7 @@ import SwiftUI
 struct FriendsListItemView: View {
     // MARK: - View Params
     
-    let model: Friend
+    let model: User
     
     // MARK: - View Settings
     
@@ -39,7 +39,8 @@ struct FriendsListItemView: View {
                 .clipShape(.rect(cornerRadius: .infinity))
                 .overlay(alignment: .bottomTrailing) {
                     if model.isOnline {
-                        OnlineIndicatorView(borderColor: backgroundColor,
+                        OnlineIndicatorView(isBig: false,
+                                            borderColor: backgroundColor,
                                             fromPhone: model.onlineMobile ?? false)
                     }
                 }

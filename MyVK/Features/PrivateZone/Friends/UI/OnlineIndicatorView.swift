@@ -9,26 +9,39 @@ import SwiftUI
 
 struct OnlineIndicatorView: View {
 
-    let borderColor: Color
-    let fromPhone: Bool
+    private let borderColor: Color
+    private let fromPhone: Bool
+    private let isBig: Bool
+    
+    init(isBig: Bool, borderColor: Color, fromPhone: Bool) {
+        self.isBig = isBig
+        self.borderColor = borderColor
+        self.fromPhone = fromPhone
+    }
     
     var body: some View {
         VStack {
             Circle()
                 .fill(borderColor)
-                .frame(width: 20, height: 20)
+                .frame(
+                    width: isBig ? 28 : 18,
+                    height: isBig ? 28 : 18
+                )
                 .overlay {
                     if fromPhone {
                         Image(systemName: "iphone.smartbatterycase.gen2")
                             .resizable()
                             .renderingMode(.original)
                             .aspectRatio(contentMode: .fit)
-                            .frame(height: 15)
+                            .frame(height: isBig ? 22 : 15)
                             .foregroundColor(Color.mint)
                     } else {
                         Circle()
                             .fill(Color.mint)
-                            .frame(width: 16, height: 16)
+                            .frame(
+                                width: isBig ? 25 : 14,
+                                height: isBig ? 25 : 14
+                            )
                     }
                 }
         }
@@ -36,5 +49,5 @@ struct OnlineIndicatorView: View {
 }
 
 #Preview {
-    OnlineIndicatorView(borderColor: .gray, fromPhone: false)
+    OnlineIndicatorView(isBig: true, borderColor: .gray, fromPhone: false)
 }

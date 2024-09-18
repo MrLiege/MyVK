@@ -43,7 +43,8 @@ private extension TabBarView {
     @ViewBuilder
     var profileTabView: some View {
         let tab = TabBarFeature.Tab.profile
-        Color.gray.ignoresSafeArea()
+        
+        ProfileView(store: store.scope(state: \.profile, action: \.profile))
             .tabItem {
                 Image(systemName: tab.iconName)
                 Text(tab.titleName)
