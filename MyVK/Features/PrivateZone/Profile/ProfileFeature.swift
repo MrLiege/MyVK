@@ -11,7 +11,8 @@ import ComposableArchitecture
 struct ProfileFeature {
     @ObservableState
     struct State {
-        var loadableView = LoadableViewFeature.State()
+        var loadableView = LoadableViewFeature.State(screenState: .loaded)
+        var path = StackState<Path.State>()
         
         // MARK: Profile
         var isProfileLoading = false
@@ -33,7 +34,11 @@ struct ProfileFeature {
     enum Action: BindableAction {
         case onAppear
         case loadableView(LoadableViewFeature.Action)
+        case path(StackAction<Path.State, Path.Action>)
         case binding(BindingAction<State>)
+        
+        // MARK: Transitions
+        case showPhotos
         
         // MARK: Requests
         case profileRequest
@@ -102,6 +107,7 @@ struct ProfileFeature {
             case let .friendsResponse(.failure(error)),
                 let .profileResponse(.failure(error)),
                 let .photoResponse(.failure(error)):
+                state.loadableView.errorMessage = error.localizedDescription
                 state.loadableView.isErrorShowing = true
                 print(error)
                 return .none
@@ -121,10 +127,22 @@ struct ProfileFeature {
                 state.photos = models
                 state.isPhotoLoading = false
                 return .none
-            case .loadableView, .binding:
+                // MARK: - Transitions
+            case .showPhotos:
+                state.path.append(.photos(PhotoFeature.State()))
+                return .none
+            case .loadableView, .binding, .path:
                 return .none
             }
         }
+        .forEach(\.path, action: \.path)
+    }
+}
+
+extension ProfileFeature {
+    @Reducer(state: .equatable)
+    enum Path {
+        case photos(PhotoFeature)
     }
 }
 
