@@ -15,3 +15,7 @@ struct ArrayInnerResponseModel<T: Decodable>: Decodable {
     let count: Int?
     let items: [T]?
 }
+
+struct SingleResponseModel<T: Decodable>: Decodable {
+    let groups: [T]?
+}

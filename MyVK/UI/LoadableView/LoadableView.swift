@@ -37,7 +37,3 @@ private extension LoadableView {
         store.send(.onRepeat)
     }
 }
-
-//#Preview {
-//    LoadableView()
-//}

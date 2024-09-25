@@ -60,7 +60,3 @@ private extension ProfileView {
         store.send(.showPhotos)
     }
 }
-
-//#Preview {
-//    ProfileView()
-//}

@@ -37,7 +37,7 @@ struct PhotoView: View {
                     .padding()
                 }
         } skeleton: {
-            ProfileSceletonView()
+            GridItemPhotoSceletonView()
         }
         .navigationTitle("Фото профиля")
         .onAppear(perform: appearAction)

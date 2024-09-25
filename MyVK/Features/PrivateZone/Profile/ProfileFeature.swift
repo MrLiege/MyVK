@@ -62,6 +62,8 @@ struct ProfileFeature {
         Reduce { state, action in
             switch action {
             case .onAppear:
+                print("Токен: \(UserStorage.shared.token)")
+                print("ID: \(UserStorage.shared.userID)")
                 return .merge(
                     .send(.profileRequest),
                     .send(.friendsRequest),
