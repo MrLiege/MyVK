@@ -22,7 +22,9 @@ extension View {
 // MARK: - UI methods
 
 extension View {
-    func roundedContainer(_ title: String? = nil, isLoading: Bool) -> some View {
+    func roundedContainer(_ title: String? = nil, 
+                          isLoading: Bool,
+                          action: (() -> Void)? = nil) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             if let title {
                 Text(title)
@@ -36,7 +38,13 @@ extension View {
             if isLoading {
                 ProgressView()
             } else {
-                self
+                if let action {
+                    Button(action: action) {
+                        self
+                    }
+                } else {
+                    self
+                }
             }
         }
         .frame(maxWidth: .infinity, minHeight: 64, alignment: .leading)

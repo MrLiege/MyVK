@@ -32,7 +32,7 @@ extension UserPhoto {
     }
 }
 
-struct UserPhotoSize: Identifiable {
+struct UserPhotoSize: Identifiable, Equatable {
     let id = UUID()
     let height: Double
     let width: Double

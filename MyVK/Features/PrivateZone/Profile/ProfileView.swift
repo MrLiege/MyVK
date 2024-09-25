@@ -13,7 +13,7 @@ struct ProfileView: View {
     @Bindable var store: StoreOf<ProfileFeature>
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
             LoadableView(
                 store: store.scope(
                     state: \.loadableView,
@@ -32,7 +32,8 @@ struct ProfileView: View {
                         ProfilePhotosListView(models: store.photoSizes)
                             .roundedContainer(
                                 "Фото: \(store.photoSizes.count)",
-                                isLoading: store.isPhotoLoading
+                                isLoading: store.isPhotoLoading,
+                                action: showPhotos
                             )
                     }
                 }
@@ -41,6 +42,11 @@ struct ProfileView: View {
             }
             .navigationTitle("Профиль")
             .onAppear(perform: appearAction)
+        } destination: { store in
+            switch store.case {
+            case let .photos(store):
+                PhotoView(store: store)
+            }
         }
     }
 }
@@ -49,12 +55,9 @@ private extension ProfileView {
     func appearAction() {
         store.send(.onAppear)
     }
-}
-
-private extension ProfileView {
-    @ViewBuilder
-    var skeletonView: some View {
-        Text("")
+    
+    func showPhotos() {
+        store.send(.showPhotos)
     }
 }
 

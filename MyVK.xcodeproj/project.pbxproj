@@ -17,6 +17,8 @@
 		0C4CFCA82C99FF4F00EA2F10 /* ProfileFriendsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CFCA72C99FF4F00EA2F10 /* ProfileFriendsListView.swift */; };
 		0C4CFCAA2C99FF6800EA2F10 /* ProfilePhotosListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CFCA92C99FF6800EA2F10 /* ProfilePhotosListView.swift */; };
 		0C4CFCAC2C9AF28400EA2F10 /* ProfileSceletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CFCAB2C9AF28300EA2F10 /* ProfileSceletonView.swift */; };
+		0C4CFCAF2C9C2EE300EA2F10 /* PhotoFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CFCAE2C9C2EE300EA2F10 /* PhotoFeature.swift */; };
+		0C4CFCB12C9C2EEF00EA2F10 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4CFCB02C9C2EEF00EA2F10 /* PhotoView.swift */; };
 		0CD87C912C8784DF00AD76AC /* MyVKApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C902C8784DF00AD76AC /* MyVKApp.swift */; };
 		0CD87C932C8784DF00AD76AC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD87C922C8784DF00AD76AC /* ContentView.swift */; };
 		0CD87C952C8784E200AD76AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CD87C942C8784E200AD76AC /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		0C4CFCA72C99FF4F00EA2F10 /* ProfileFriendsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFriendsListView.swift; sourceTree = "<group>"; };
 		0C4CFCA92C99FF6800EA2F10 /* ProfilePhotosListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosListView.swift; sourceTree = "<group>"; };
 		0C4CFCAB2C9AF28300EA2F10 /* ProfileSceletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSceletonView.swift; sourceTree = "<group>"; };
+		0C4CFCAE2C9C2EE300EA2F10 /* PhotoFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoFeature.swift; path = ../../../../../../../../../Downloads/PhotoFeature.swift; sourceTree = "<group>"; };
+		0C4CFCB02C9C2EEF00EA2F10 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
 		0CD87C8D2C8784DF00AD76AC /* MyVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CD87C902C8784DF00AD76AC /* MyVKApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyVKApp.swift; sourceTree = "<group>"; };
 		0CD87C922C8784DF00AD76AC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,8 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				0C4CFCA42C99FF2B00EA2F10 /* UI */,
-				0C4CFCA02C99A19600EA2F10 /* ProfileFeature.swift */,
 				0C4CFCA22C99FAAA00EA2F10 /* ProfileView.swift */,
+				0C4CFCA02C99A19600EA2F10 /* ProfileFeature.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -171,6 +175,15 @@
 				0C4CFCA92C99FF6800EA2F10 /* ProfilePhotosListView.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		0C4CFCAD2C9C2EC600EA2F10 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				0C4CFCB02C9C2EEF00EA2F10 /* PhotoView.swift */,
+				0C4CFCAE2C9C2EE300EA2F10 /* PhotoFeature.swift */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 		0CD87C842C8784DF00AD76AC = {
@@ -296,6 +309,7 @@
 		0CD87CD52C8F359800AD76AC /* PrivateZone */ = {
 			isa = PBXGroup;
 			children = (
+				0C4CFCAD2C9C2EC600EA2F10 /* Photo */,
 				0C4CFC9F2C99A16900EA2F10 /* Profile */,
 				0CD87D072C94622600AD76AC /* Friends */,
 				0CD87CD62C8F35A700AD76AC /* TabBar */,
@@ -558,10 +572,12 @@
 				0C4CFCA82C99FF4F00EA2F10 /* ProfileFriendsListView.swift in Sources */,
 				0CD87D122C95B35900AD76AC /* FriendsListItemView.swift in Sources */,
 				0CD87CAA2C878E9D00AD76AC /* UserStorage.swift in Sources */,
+				0C4CFCB12C9C2EEF00EA2F10 /* PhotoView.swift in Sources */,
 				0CD87D102C95B27600AD76AC /* TextInfoView.swift in Sources */,
 				0CD87D192C95DB7E00AD76AC /* LoadableView.swift in Sources */,
 				0CD87D0B2C94625A00AD76AC /* FriendsListFeature.swift in Sources */,
 				0CD87D2D2C964C1E00AD76AC /* Bool+Extension.swift in Sources */,
+				0C4CFCAF2C9C2EE300EA2F10 /* PhotoFeature.swift in Sources */,
 				0C4CFCA62C99FF3A00EA2F10 /* ProfileInfoView.swift in Sources */,
 				0C4CFCAA2C99FF6800EA2F10 /* ProfilePhotosListView.swift in Sources */,
 				0CD87C932C8784DF00AD76AC /* ContentView.swift in Sources */,
