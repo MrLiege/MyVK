@@ -81,6 +81,3 @@ private extension FriendsListView {
     }
 }
 
-//#Preview {
-//    FriendsListView()
-//}

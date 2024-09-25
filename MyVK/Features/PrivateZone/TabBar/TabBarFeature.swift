@@ -14,14 +14,16 @@ struct TabBarFeature {
     
     @ObservableState
     struct State {
-        var currentTab: Tab = .friends
+        var currentTab: Tab = .community
         
         var profile = ProfileFeature.State()
+        var community = CommunitiesFeature.State()
         var friends = FriendsListFeature.State()
     }
     
     enum Action: BindableAction {
         case profile(ProfileFeature.Action)
+        case community(CommunitiesFeature.Action)
         case friends(FriendsListFeature.Action)
         case binding(BindingAction<State>)
     }
@@ -33,30 +35,28 @@ struct TabBarFeature {
             ProfileFeature()
         }
         
+        Scope(state: \.community, action: \.community) {
+            CommunitiesFeature()
+        }
+        
         Scope(state: \.friends, action: \.friends) {
             FriendsListFeature()
         }
-        
-//        Reduce { state, action in
-//            switch action {
-//            case .change(let tab):
-//                    state.currentTab = tab
-//                return .none
-//            case .binding:
-//                return .none
-//            }
     }
 }
 
 extension TabBarFeature {
     enum Tab {
         case friends
+        case community
         case profile
         
         var iconName: String {
             switch self {
             case .friends:
                 return "person.2.fill"
+            case .community:
+                return "person.3.fill"
             case .profile:
                 return "person.crop.circle"
             }
@@ -66,6 +66,8 @@ extension TabBarFeature {
             switch self {
             case .friends:
                 return "Друзья"
+            case .community:
+                return "Группы"
             case .profile:
                 return "Профиль"
             }

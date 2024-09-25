@@ -16,7 +16,7 @@ struct ProfileSceletonView: View {
         }
         .padding(.vertical, 100)
         
-        Spacer()
+        Spacer()    
     }
 }
 

@@ -73,7 +73,3 @@ struct FriendsListItemView: View {
         }
     }
 }
-
-//#Preview {
-//    FriendsListItemView()
-//}
